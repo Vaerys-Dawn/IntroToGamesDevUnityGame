@@ -1,4 +1,3 @@
 *.lock
 
-Game/Library/
 Game/.vs/*

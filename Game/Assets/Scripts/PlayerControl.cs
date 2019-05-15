@@ -28,6 +28,7 @@ public class PlayerControl : MonoBehaviour {
         if (moveDown) moveZ -= 1;
 
         Vector3 movement = new Vector3(moveX, 0, moveZ);
-        player.AddForce(movement * speed);
+        float divisor = Mathf.Sqrt(Mathf.Abs(moveX) + Mathf.Abs(moveZ));
+        player.AddForce(movement * speed / divisor);
     }
 }

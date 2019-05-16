@@ -22,6 +22,7 @@ public class PlayerControl : MonoBehaviour {
     Rigidbody player;
 
     private void Start() {
+        //SceneManager.LoadScene("Scene");
         player = GetComponent<Rigidbody>();
     }
 

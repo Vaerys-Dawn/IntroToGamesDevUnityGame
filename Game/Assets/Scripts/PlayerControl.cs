@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -14,6 +16,8 @@ public class PlayerControl : MonoBehaviour {
     public int speed = 20;
     public int score = 0;
     public int health = 20;
+    public Text textHealth;
+    public Text textScore;
 
     Rigidbody player;
 
@@ -56,11 +60,18 @@ public class PlayerControl : MonoBehaviour {
     private void FixedUpdate() {
         doMovement();
         checkHealth();
+        updateText();
+    }
+
+    private void updateText() {
+        textHealth.text = ("Health: " + health);
+        textScore.text = ("Score: " + score);
     }
 
     private void checkHealth() {
         if (health <= 0) {
             Destroy(gameObject);
+            SceneManager.LoadScene("Game_Over");
         }
     }
 }

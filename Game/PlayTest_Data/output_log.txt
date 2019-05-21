@@ -15,9 +15,22 @@ Platform assembly: E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\M
 Loading E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.099 seconds
+- Completed reload, in  0.041 seconds
 Platform assembly: E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3200x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.053800 ms
+Plane
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 13330 -> priority: 1 
+  Thread -> id: 1451c -> priority: 1 
+Gem
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+

@@ -73,6 +73,7 @@ public class PlayerControl : MonoBehaviour {
                     score++;
                 }
                 else {
+                    Respawn();
                     health--;
                 }
                 break;

@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour {
     bool moveDown = false;
     bool colliding = false;
     bool isSneaking = false;
-    public int speed = 20;
+    private float speed = 20;
     public int score = 0;
     public int health = 20;
     public Text textHealth;
@@ -48,12 +48,20 @@ public class PlayerControl : MonoBehaviour {
         if (moveUp) moveZ += 1;
         if (moveDown) moveZ -= 1;
 
-        if (isSneaking) speed = 10;
-        else speed = 12;
+        if (isSneaking) speed = 100;
+        else speed = 200;
 
-        Vector3 movement = new Vector3(moveX, 0.5f, moveZ);
+        //get vector for the direction
+        Vector3 movement = new Vector3(moveX, 0, moveZ);
+        //get the divisor
         float divisor = Mathf.Sqrt(Mathf.Abs(moveX) + Mathf.Abs(moveZ));
-        if (moveX != 0 || moveZ != 0) player.AddForce(movement * (speed / divisor));
+        //math...
+        if (moveX != 0 || moveZ != 0) {
+            player.velocity = movement * (speed / divisor) * Time.deltaTime;
+        }
+        else {
+            player.velocity = new Vector3(0, player.velocity.y, 0);
+        }
     }
 
     private static void animationThread(Collision col, GameObject game) {

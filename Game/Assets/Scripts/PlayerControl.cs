@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour {
     bool moveLeft = false;
     bool moveRight = false;
     bool moveUp = false;
+
     bool moveDown = false;
     bool colliding = false;
     bool isSneaking = false;
@@ -20,12 +21,14 @@ public class PlayerControl : MonoBehaviour {
     public Text textHealth;
     public Text textScore;
     public Text alert;
+    public Vector3 spawn;
 
     private bool isSpotted = false;
 
     Rigidbody player;
 
     private void Start() {
+        spawn = gameObject.transform.position;
         //SceneManager.LoadScene("Scene");
         player = GetComponent<Rigidbody>();
     }
@@ -45,10 +48,10 @@ public class PlayerControl : MonoBehaviour {
         if (moveUp) moveZ += 1;
         if (moveDown) moveZ -= 1;
 
-        if (isSneaking) speed = 9;
-        else speed = 10;
+        if (isSneaking) speed = 10;
+        else speed = 12;
 
-        Vector3 movement = new Vector3(moveX, 0.6f, moveZ);
+        Vector3 movement = new Vector3(moveX, 0.5f, moveZ);
         float divisor = Mathf.Sqrt(Mathf.Abs(moveX) + Mathf.Abs(moveZ));
         if (moveX != 0 || moveZ != 0) player.AddForce(movement * (speed / divisor));
     }
@@ -106,5 +109,9 @@ public class PlayerControl : MonoBehaviour {
             Destroy(gameObject);
             SceneManager.LoadScene("Game_Over");
         }
+    }
+
+    internal void Respawn() {
+        gameObject.transform.position = spawn;
     }
 }

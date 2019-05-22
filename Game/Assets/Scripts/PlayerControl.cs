@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour {
         player = GetComponent<Rigidbody>();
     }
 
-    private void doMovement() {
+    private void DoMovement() {
         moveLeft = Input.GetKey("a") || Input.GetKey("left");
         moveRight = Input.GetKey("d") || Input.GetKey("right");
         moveUp = Input.GetKey("w") || Input.GetKey("up");
@@ -60,12 +60,8 @@ public class PlayerControl : MonoBehaviour {
             player.velocity = movement * (speed / divisor) * Time.deltaTime;
         }
         else {
-            player.velocity = new Vector3(0, player.velocity.y, 0);
+            player.velocity = new Vector3(player.velocity.x * 0.8f, player.velocity.y, player.velocity.z * 0.8f);
         }
-    }
-
-    private static void animationThread(Collision col, GameObject game) {
-
     }
 
     private void OnCollisionEnter(Collision col) {
@@ -102,17 +98,17 @@ public class PlayerControl : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        doMovement();
-        checkHealth();
-        updateText();
+        DoMovement();
+        CheckHealth();
+        UpdateText();
     }
 
-    private void updateText() {
+    private void UpdateText() {
         textHealth.text = ("Health: " + health);
         textScore.text = ("Score: " + score);
     }
 
-    private void checkHealth() {
+    private void CheckHealth() {
         if (health <= 0) {
             Destroy(gameObject);
             SceneManager.LoadScene("Game_Over");

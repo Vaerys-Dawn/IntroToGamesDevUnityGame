@@ -2,3 +2,8 @@ Game/Library/metadata
 Game/Library/ShaderCache
 Game/Temp
 Game/.vs/*
+
+guard patrole/Library/metadata
+guard patrole/Library/ShaderCache
+guard patrole/Temp
+guard patrole/.vs/*

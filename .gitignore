@@ -7,3 +7,8 @@ guard patrole/Library/metadata
 guard patrole/Library/ShaderCache
 guard patrole/Temp
 guard patrole/.vs/*
+
+guard patrole/New Unity Project (2)/Library/metadata
+guard patrole/New Unity Project (2)/Library/ShaderCache
+guard patrole/New Unity Project (2)/Temp
+guard patrole/New Unity Project (2)/.vs/*

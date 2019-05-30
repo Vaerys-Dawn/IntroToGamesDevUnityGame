@@ -102,6 +102,13 @@ public class PlayerControl : MonoBehaviour {
         DoMovement();
         CheckHealth();
         UpdateText();
+        CheckScore();
+    }
+
+    private void CheckScore() {
+        if (score >= 8) {
+            SceneManager.LoadScene("Scene Guards");
+        }
     }
 
     private void UpdateText() {

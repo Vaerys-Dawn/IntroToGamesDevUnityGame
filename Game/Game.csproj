@@ -78,9 +78,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GuardControl.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
+    <Compile Include="Assets\Scripts\GameUI.cs" />
     <Compile Include="Assets\Scripts\GemControl.cs" />
+    <Compile Include="Assets\Scripts\Guard.cs" />
+    <Compile Include="Assets\Scripts\GuardControl.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Void.cs" />
   </ItemGroup>

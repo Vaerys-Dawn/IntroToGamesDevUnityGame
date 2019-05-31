@@ -19,6 +19,7 @@ public class Guard : MonoBehaviour {
 
     public Transform pathHolder;
     Transform player;
+    PlayerControl playerControl;
     Color originalSpotlightColour;
     public GameObject cone;
     public Material alerted;
@@ -36,6 +37,7 @@ public class Guard : MonoBehaviour {
 
 	void Start() {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
 		viewAngle = spotlight.spotAngle;
 		originalSpotlightColour = spotlight.color;
         unalerted = cone.GetComponent<Renderer>().material;
@@ -60,24 +62,29 @@ public class Guard : MonoBehaviour {
     }
 
 	void Update() {
-		if (CanSeePlayer()) {
-			playerVisibleTimer += Time.deltaTime;
-		} else {
-			playerVisibleTimer -= Time.deltaTime;
-		}
-		playerVisibleTimer = Mathf.Clamp (playerVisibleTimer, 0, timeToSpotPlayer);
-		spotlight.color = Color.Lerp (originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
-
-
-		if (playerVisibleTimer >= timeToSpotPlayer) {
-            cone.GetComponent<Renderer>().material = alerted;
-			if (OnGuardHasSpottedPlayer != null) {
-				OnGuardHasSpottedPlayer();
-			}
+        if (CanSeePlayer()) {
+            playerControl.health--;
+            playerControl.Respawn();
         }
-        else {
-            cone.GetComponent<Renderer>().material = unalerted;
-        }
+
+	//	if (CanSeePlayer()) {
+	//		playerVisibleTimer += Time.deltaTime;
+	//	} else {
+	//		playerVisibleTimer -= Time.deltaTime;
+	//	}
+	//	playerVisibleTimer = Mathf.Clamp (playerVisibleTimer, 0, timeToSpotPlayer);
+	//	spotlight.color = Color.Lerp (originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
+    //
+    //
+	//	if (playerVisibleTimer >= timeToSpotPlayer) {
+    //       cone.GetComponent<Renderer>().material = alerted;
+	//		if (OnGuardHasSpottedPlayer != null) {
+	//			OnGuardHasSpottedPlayer();
+	//		}
+    //   }
+    //   else {
+    //       cone.GetComponent<Renderer>().material = unalerted;
+    //   }
 	}
 
 	bool CanSeePlayer() {

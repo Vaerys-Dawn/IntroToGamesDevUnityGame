@@ -18,9 +18,6 @@ public class PlayerControl : MonoBehaviour {
     private float speed = 20;
     public int score = 0;
     public int health = 20;
-    public Text textHealth;
-    public Text textScore;
-    public Text alert;
     public Vector3 spawn;
 
     private bool isSpotted = false;
@@ -29,7 +26,6 @@ public class PlayerControl : MonoBehaviour {
 
     private void Start() {
         spawn = gameObject.transform.position;
-        //SceneManager.LoadScene("Scene");
         player = GetComponent<Rigidbody>();
     }
 
@@ -48,8 +44,8 @@ public class PlayerControl : MonoBehaviour {
         if (moveUp) moveZ += 1;
         if (moveDown) moveZ -= 1;
 
-        if (isSneaking) speed = 100;
-        else speed = 200;
+        if (isSneaking) speed = 150;
+        else speed = 300;
 
         //get vector for the direction
         Vector3 movement = new Vector3(moveX, 0, moveZ);
@@ -84,36 +80,9 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider col) {
-        switch (col.tag) {
-            case "Cone":
-                alert.text = "You have been spotted.";
-                isSpotted = true;
-                break;
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        alert.text = "";
-        isSpotted = false;
-    }
-
     private void FixedUpdate() {
         DoMovement();
         CheckHealth();
-        UpdateText();
-        CheckScore();
-    }
-
-    private void CheckScore() {
-        if (score >= 8) {
-            SceneManager.LoadScene("Scene Guards");
-        }
-    }
-
-    private void UpdateText() {
-        textHealth.text = ("Health: " + health);
-        textScore.text = ("Score: " + score);
     }
 
     private void CheckHealth() {

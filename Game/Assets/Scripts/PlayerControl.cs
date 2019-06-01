@@ -13,12 +13,12 @@ public class PlayerControl : MonoBehaviour {
     bool moveUp = false;
 
     bool moveDown = false;
-    bool colliding = false;
     bool isSneaking = false;
     private float speed = 20;
     public int score = 0;
     public int health = 20;
     public Vector3 spawn;
+   
 
     private bool isSpotted = false;
 
@@ -30,6 +30,10 @@ public class PlayerControl : MonoBehaviour {
     }
 
     private void DoMovement() {
+        if (!IsGrounded()) {
+            return;
+        }
+
         moveLeft = Input.GetKey("a") || Input.GetKey("left");
         moveRight = Input.GetKey("d") || Input.GetKey("right");
         moveUp = Input.GetKey("w") || Input.GetKey("up");
@@ -47,6 +51,7 @@ public class PlayerControl : MonoBehaviour {
         if (isSneaking) speed = 150;
         else speed = 300;
 
+        Vector3 currentVelocity = player.velocity;
         //get vector for the direction
         Vector3 movement = new Vector3(moveX, 0, moveZ);
         //get the divisor
@@ -56,8 +61,11 @@ public class PlayerControl : MonoBehaviour {
             player.velocity = movement * (speed / divisor) * Time.deltaTime;
         }
         else {
-            player.velocity = new Vector3(player.velocity.x * 0.8f, player.velocity.y, player.velocity.z * 0.8f);
+            player.velocity = new Vector3(player.velocity.x * 0.8f, 0, player.velocity.z * 0.8f);
         }
+        player.velocity = new Vector3(player.velocity.x, currentVelocity.y, player.velocity.z);
+
+        
     }
 
     private void OnCollisionEnter(Collision col) {
@@ -78,6 +86,14 @@ public class PlayerControl : MonoBehaviour {
                 else health--;
                 break;
         }
+    }
+
+    bool IsGrounded() {
+        bool corner1 = Physics.Raycast(new Vector3(player.position.x - 0.5f, player.position.y, player.position.z - 0.5f), Vector3.down, 0.6f);
+        bool corner2 = Physics.Raycast(new Vector3(player.position.x + 0.5f, player.position.y, player.position.z - 0.5f), Vector3.down, 0.6f);
+        bool corner3 = Physics.Raycast(new Vector3(player.position.x + 0.5f, player.position.y, player.position.z + 0.5f), Vector3.down, 0.6f);
+        bool corner4 = Physics.Raycast(new Vector3(player.position.x - 0.5f, player.position.y, player.position.z + 0.5f), Vector3.down, 0.6f);
+        return (corner1 || corner2 || corner3 || corner4);
     }
 
     private void FixedUpdate() {

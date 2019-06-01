@@ -12,6 +12,8 @@ public class Void : MonoBehaviour {
                 player.Respawn();
                 player.health--;
                 break;
+            case "Pillar":
+                break;
             default:
                 Destroy(col.collider.gameObject);
                 break;

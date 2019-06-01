@@ -13,20 +13,28 @@ public class PlayerControl : MonoBehaviour {
     bool moveUp = false;
 
     bool moveDown = false;
-    bool isSneaking = false;
+    public bool isSneaking = false;
     private float speed = 20;
+    private Vector3 spawn;
+
     public int score = 0;
-    public int health = 20;
-    public Vector3 spawn;
-   
+    public int health;
+    public float resource;
+    public float maxResource = 200;
+
+    public Material visible;
+    public Material hidden;
+    private bool coolDown;
 
     private bool isSpotted = false;
 
     Rigidbody player;
 
+
     private void Start() {
         spawn = gameObject.transform.position;
         player = GetComponent<Rigidbody>();
+        resource = maxResource;
     }
 
     private void DoMovement() {
@@ -38,7 +46,8 @@ public class PlayerControl : MonoBehaviour {
         moveRight = Input.GetKey("d") || Input.GetKey("right");
         moveUp = Input.GetKey("w") || Input.GetKey("up");
         moveDown = Input.GetKey("s") || Input.GetKey("down");
-        isSneaking = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+        HandleStealth();
 
         float moveX = 0;
         float moveZ = 0;
@@ -65,11 +74,29 @@ public class PlayerControl : MonoBehaviour {
         }
         player.velocity = new Vector3(player.velocity.x, currentVelocity.y, player.velocity.z);
 
-        
+
+    }
+
+    private void HandleStealth() {
+        bool shiftHeld = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+        bool released = (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift));
+
+        isSneaking = (shiftHeld && !coolDown);
+
+        if (!shiftHeld && resource < maxResource) coolDown = true;
+        if (!coolDown && isSneaking && resource > 0) resource--;
+        if (coolDown && resource < maxResource) resource++;
+        if (resource == maxResource) coolDown = false;
+        if (resource == 0) coolDown = true;
+
+    }
+
+    internal bool isVisible() {
+        return !isSneaking;
     }
 
     private void OnCollisionEnter(Collision col) {
-        print(col.collider.name);
+        if (isSneaking) return;
         switch (col.collider.tag) {
             case "Gem":
                 if (!isSpotted) {
@@ -98,13 +125,15 @@ public class PlayerControl : MonoBehaviour {
 
     private void FixedUpdate() {
         DoMovement();
-        CheckHealth();
+        CheckVisible();
     }
 
-    private void CheckHealth() {
-        if (health <= 0) {
-            Destroy(gameObject);
-            SceneManager.LoadScene("Game_Over");
+    private void CheckVisible() {
+        if (isSneaking) {
+            gameObject.GetComponent<Renderer>().material = hidden;
+        }
+        else {
+            gameObject.GetComponent<Renderer>().material = visible;
         }
     }
 

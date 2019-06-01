@@ -62,7 +62,7 @@ public class Guard : MonoBehaviour {
     }
 
 	void Update() {
-        if (CanSeePlayer()) {
+        if (CanSeePlayer() && playerControl.isVisible()) {
             playerControl.health--;
             playerControl.Respawn();
         }

@@ -9,48 +9,64 @@ public class GameControl : MonoBehaviour {
 
     private int gemCount;
     private PlayerControl player;
-    private Canvas pauseMenu;
+    public Canvas pauseMenu;
+    public Canvas deathScreen;
     public Text textHealth;
     public Text textScore;
     public Text alert;
+
     bool paused;
 
     // Use this for initialization
     void Start () {
         gemCount = GameObject.FindGameObjectsWithTag("Gem").Length;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
-        pauseMenu = GameObject.FindGameObjectWithTag("Pause").GetComponent<Canvas>();
         pauseMenu.enabled = false;
+        deathScreen.enabled = false;
         UnPause();
     }
 	
 	// Update is called once per frame
 	void Update () {
+        HandlePause();
+        UpdateText();
+        CheckGems();
+        CheckHealth();
+    }
+
+    private void CheckHealth() {
+        if (player.health == 0) {
+            Pause();
+            deathScreen.enabled = true;
+        }
+    }
+
+    private void HandlePause() {
         if (Input.GetKeyUp(KeyCode.Escape)) {
-            if (paused) UnPause();
-            else Pause();
+            if (paused) {
+                UnPause();
+                pauseMenu.enabled = false;
+            }
+            else {
+                Pause();
+                pauseMenu.enabled = true;
+            }
         }
-        if (!paused) {
-            UpdateText();
-            CheckGems();
-        }
-	}
+    }
 
     private void Pause() {
         Time.timeScale = 0;
-        pauseMenu.enabled = true;
         paused = true;
     }
 
     private void UnPause() {
         Time.timeScale = 1;
-        pauseMenu.enabled = false;
         paused = false;
     }
 
     private void CheckGems() {
         if (player.score >= gemCount) {
-            if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex) {
+            if (SceneManager.sceneCountInBuildSettings-1 == SceneManager.GetActiveScene().buildIndex) {
                 SceneManager.LoadScene(0);
             }
             else {

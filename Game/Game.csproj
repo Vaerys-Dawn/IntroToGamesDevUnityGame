@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\GemControl.cs" />
     <Compile Include="Assets\Scripts\Guard.cs" />
     <Compile Include="Assets\Scripts\GuardControl.cs" />
+    <Compile Include="Assets\Scripts\PauseControl.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Void.cs" />

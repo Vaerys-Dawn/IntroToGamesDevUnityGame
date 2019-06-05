@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class Guard : MonoBehaviour {
     public Light spotlight;
     public float viewDistance;
     public LayerMask viewMask;
+    public bool doFollowPath = true;
 
     float viewAngle;
     float playerVisibleTimer;
@@ -21,9 +23,8 @@ public class Guard : MonoBehaviour {
     Transform player;
     PlayerControl playerControl;
     Color originalSpotlightColour;
-    public GameObject cone;
-    public Material alerted;
     Material unalerted;
+    private GameControl control;
 
     private class WayObject {
         public Vector3 location;
@@ -38,33 +39,43 @@ public class Guard : MonoBehaviour {
 	void Start() {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
         playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
-		viewAngle = spotlight.spotAngle;
+        control = GameObject.FindGameObjectWithTag("GameControl").GetComponent<GameControl>();
+        viewAngle = spotlight.spotAngle;
 		originalSpotlightColour = spotlight.color;
-        unalerted = cone.GetComponent<Renderer>().material;
         List<WayObject> waypoints = new List<WayObject>();
 		for (int i = 0; i < pathHolder.childCount; i++) {
             Vector3 start = pathHolder.GetChild(i).position;
             start.y = transform.position.y;
 			waypoints.Add(new WayObject(start, GetWait(pathHolder.GetChild(i))));
 		}
-		StartCoroutine(FollowPath(waypoints));
+
+        if (waypoints.Count > 1) {
+            if (doFollowPath) { 
+                StartCoroutine(FollowPath(waypoints));
+            }else {
+                StartCoroutine(LookAt(waypoints));
+            }
+        }
 	}
 
     private float GetWait(Transform child) {
         switch (child.tag) {
             case "Wait 5":
-                return 5;
+                return 5f;
             case "Wait 0.3":
                 return 0.3f;
+            case "Wait 2":
+                return 2f;
             default:
-                return 1;
+                return 1f;
         }
     }
 
 	void Update() {
-        if (CanSeePlayer() && playerControl.isVisible()) {
+        if (control.IsPaused()) return;
+        if (CanSeePlayer() && playerControl.IsVisible()) {
             playerControl.health--;
-            playerControl.Respawn();
+            playerControl.Detected();
         }
 
 	//	if (CanSeePlayer()) {
@@ -119,7 +130,21 @@ public class Guard : MonoBehaviour {
 		}
 	}
 
-	IEnumerator TurnToFace(Vector3 lookTarget) {
+
+    private IEnumerator LookAt(List<WayObject> waypoints) {
+        int next = 1;
+        Vector3 targetWaypoint = waypoints[next].location;
+        transform.LookAt(targetWaypoint);
+
+        while (true) {
+            next = (next + 1) % waypoints.Count;
+            targetWaypoint = waypoints[next].location;
+            yield return new WaitForSeconds(waypoints[next].waitTime);
+            yield return StartCoroutine(TurnToFace(targetWaypoint));
+        }
+    }
+
+    IEnumerator TurnToFace(Vector3 lookTarget) {
 		Vector3 dirToLookTarget = (lookTarget - transform.position).normalized;
 		float targetAngle = 90 - Mathf.Atan2 (dirToLookTarget.z, dirToLookTarget.x) * Mathf.Rad2Deg;
 
@@ -131,16 +156,17 @@ public class Guard : MonoBehaviour {
 	}
 
 	void OnDrawGizmos() {
-		Vector3 startPosition = pathHolder.GetChild (0).position;
-		Vector3 previousPosition = startPosition;
+        if (pathHolder.childCount > 0) {
+            Vector3 startPosition = pathHolder.GetChild(0).position;
+            Vector3 previousPosition = startPosition;
 
-		foreach (Transform waypoint in pathHolder) {
-			Gizmos.DrawSphere (waypoint.position, .3f);
-			Gizmos.DrawLine (previousPosition, waypoint.position);
-			previousPosition = waypoint.position;
-		}
-		Gizmos.DrawLine (previousPosition, startPosition);
-
+            foreach (Transform waypoint in pathHolder) {
+                Gizmos.DrawSphere(waypoint.position, .3f);
+                Gizmos.DrawLine(previousPosition, waypoint.position);
+                previousPosition = waypoint.position;
+            }
+            Gizmos.DrawLine(previousPosition, startPosition);
+        }
 		Gizmos.color = Color.red;
 		Gizmos.DrawRay (transform.position, transform.forward * viewDistance);
 	}

@@ -12,7 +12,7 @@ public class GameUI : MonoBehaviour {
 
 	void Start () {
 		Guard.OnGuardHasSpottedPlayer += ShowGameLoseUI;
-		FindObjectOfType<Player> ().OnReachedEndOfLevel += ShowGameWinUI;
+		FindObjectOfType<Player>().OnReachedEndOfLevel += ShowGameWinUI;
 	}
 	
 

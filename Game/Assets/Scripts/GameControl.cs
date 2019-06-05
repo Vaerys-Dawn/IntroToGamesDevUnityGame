@@ -54,17 +54,18 @@ public class GameControl : MonoBehaviour {
         }
     }
 
-    private void Pause() {
+    public void Pause() {
         Time.timeScale = 0;
         paused = true;
     }
 
-    private void UnPause() {
+    public void UnPause() {
         Time.timeScale = 1;
         paused = false;
     }
 
     private void CheckGems() {
+        if (gemCount == 0) return;
         if (player.score >= gemCount) {
             if (SceneManager.sceneCountInBuildSettings-1 == SceneManager.GetActiveScene().buildIndex) {
                 SceneManager.LoadScene(0);
@@ -76,7 +77,11 @@ public class GameControl : MonoBehaviour {
     }
 
     private void UpdateText() {
-        textHealth.text = ("Health: " + player.health);
+        textHealth.text = ("Lives: " + player.health);
         textScore.text = ("Gems " + player.score + "/" + gemCount);
+    }
+
+    internal bool IsPaused() {
+        return paused;
     }
 }

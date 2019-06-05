@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Void : MonoBehaviour {
 
-    public PlayerControl player;
+    private PlayerControl player;
+
+    private void Start() {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+    }
 
     private void OnCollisionEnter(Collision col) {
         switch (col.collider.tag) {
             case "Player":
-                player.Respawn();
+                player.Void();
                 player.health--;
                 break;
             case "Pillar":

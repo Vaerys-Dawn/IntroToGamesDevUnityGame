@@ -15,32 +15,14 @@ Platform assembly: E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\M
 Loading E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.035 seconds
+- Completed reload, in  0.036 seconds
 Platform assembly: E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\Repositories\IntroToGamesDevUnityGame\Game\PlayTest_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3200x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.053800 ms
+UnloadTime: 1.192900 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2090 -> priority: 1 
-  Thread -> id: 2850 -> priority: 1 
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.618000 ms
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 820.
-Total: 0.415400 ms (FindLiveObjects: 0.063500 ms CreateObjectMapping: 0.021900 ms MarkObjects: 0.310300 ms  DeleteObjects: 0.018900 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.853200 ms
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 820.
-Total: 0.341500 ms (FindLiveObjects: 0.057000 ms CreateObjectMapping: 0.021100 ms MarkObjects: 0.245400 ms  DeleteObjects: 0.017200 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.839500 ms
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 820.
-Total: 0.342000 ms (FindLiveObjects: 0.061600 ms CreateObjectMapping: 0.021700 ms MarkObjects: 0.241100 ms  DeleteObjects: 0.016500 ms)
-
+  Thread -> id: e10 -> priority: 1 
+  Thread -> id: 6aec -> priority: 1 

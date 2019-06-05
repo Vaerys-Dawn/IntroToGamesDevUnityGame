@@ -1,6 +1,7 @@
 Game/Library/metadata
+Game/Library/Artifacts
 Game/Library/ShaderCache
-Game/Temp
+Game/Temp/*
 Game/.vs/*
 
 guard patrole/Library/metadata
@@ -12,3 +13,15 @@ guard patrole/New Unity Project (2)/Library/metadata
 guard patrole/New Unity Project (2)/Library/ShaderCache
 guard patrole/New Unity Project (2)/Temp
 guard patrole/New Unity Project (2)/.vs/*
+
+Stealth_Game/Library/metadata/*
+Stealth_Game/Library/Artifacts/*
+Stealth_Game/Library/ShaderCache/*
+Stealth_Game/Temp/*
+Stealth_Game/.vs/*
+Stealth_Game/Stealth_Game/Library/metadata/*
+Stealth_Game/Stealth_Game/Library/Artifacts/*
+Stealth_Game/Stealth_Game/Library/ShaderCache/*
+Stealth_Game/Stealth_Game/Temp/*
+Stealth_Game/Stealth_Game/.vs/*
+__MACOSX/*

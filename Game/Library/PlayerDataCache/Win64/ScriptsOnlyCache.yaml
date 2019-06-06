@@ -3,16 +3,15 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - DeathControl
     - GameControl
-    - GameUI
     - GemControl
-    - Guard
+    - GuardControl
     - LevelControl
     - PauseControl
     - PillarControl
     - PlayerControl
     - RespawnControl
     - StealthControl
-    - Void
+    - VoidControl
     Unity.ugui.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -20,7 +19,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -72,31 +70,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11292}
     - Class: 114
-      Script: {instanceID: 11652}
+      Script: {instanceID: 11650}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11842}
     - Class: 114
-      Script: {instanceID: 11924}
+      Script: {instanceID: 11922}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11958}
     - Class: 114
-      Script: {instanceID: 12014}
+      Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12066}
+      Script: {instanceID: 12064}
     - Class: 114
-      Script: {instanceID: 12168}
+      Script: {instanceID: 12166}
     - Class: 114
-      Script: {instanceID: 12374}
+      Script: {instanceID: 12368}
     - Class: 114
-      Script: {instanceID: 12498}
+      Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12856}
+      Script: {instanceID: 12848}
     - Class: 114
-      Script: {instanceID: 12858}
+      Script: {instanceID: 12850}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12898}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -118,91 +116,6 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 258
-      Script: {instanceID: 0}
-    Assets/Scenes/Scene Guards.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
-    - Class: 64
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 11054}
-    - Class: 114
-      Script: {instanceID: 11210}
-    - Class: 114
-      Script: {instanceID: 11250}
-    - Class: 114
-      Script: {instanceID: 11292}
-    - Class: 114
-      Script: {instanceID: 11652}
-    - Class: 114
-      Script: {instanceID: 11772}
-    - Class: 114
-      Script: {instanceID: 11924}
-    - Class: 114
-      Script: {instanceID: 12014}
-    - Class: 114
-      Script: {instanceID: 12066}
-    - Class: 114
-      Script: {instanceID: 12168}
-    - Class: 114
-      Script: {instanceID: 12374}
-    - Class: 114
-      Script: {instanceID: 12498}
-    - Class: 114
-      Script: {instanceID: 12856}
-    - Class: 114
-      Script: {instanceID: 12858}
-    - Class: 114
-      Script: {instanceID: 12906}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 124
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 135
-      Script: {instanceID: 0}
-    - Class: 136
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/Scene.unity:
     - Class: 1
@@ -252,40 +165,38 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11292}
     - Class: 114
-      Script: {instanceID: 11590}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11652}
+      Script: {instanceID: 11650}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11842}
     - Class: 114
-      Script: {instanceID: 11924}
+      Script: {instanceID: 11922}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11958}
     - Class: 114
-      Script: {instanceID: 12014}
+      Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12066}
+      Script: {instanceID: 12064}
     - Class: 114
-      Script: {instanceID: 12168}
+      Script: {instanceID: 12166}
     - Class: 114
-      Script: {instanceID: 12374}
+      Script: {instanceID: 12368}
     - Class: 114
-      Script: {instanceID: 12498}
+      Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12856}
+      Script: {instanceID: 12848}
     - Class: 114
-      Script: {instanceID: 12858}
+      Script: {instanceID: 12850}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12898}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 134
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -303,7 +214,177 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
-    Assets/Scenes/Stealth_Game_!.unity:
+    Assets/Scenes/Scene_Guards.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11054}
+    - Class: 114
+      Script: {instanceID: 11210}
+    - Class: 114
+      Script: {instanceID: 11250}
+    - Class: 114
+      Script: {instanceID: 11292}
+    - Class: 114
+      Script: {instanceID: 11650}
+    - Class: 114
+      Script: {instanceID: 11770}
+    - Class: 114
+      Script: {instanceID: 11922}
+    - Class: 114
+      Script: {instanceID: 12012}
+    - Class: 114
+      Script: {instanceID: 12064}
+    - Class: 114
+      Script: {instanceID: 12166}
+    - Class: 114
+      Script: {instanceID: 12368}
+    - Class: 114
+      Script: {instanceID: 12490}
+    - Class: 114
+      Script: {instanceID: 12848}
+    - Class: 114
+      Script: {instanceID: 12850}
+    - Class: 114
+      Script: {instanceID: 12898}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 124
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Scene_Guards_2.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11054}
+    - Class: 114
+      Script: {instanceID: 11210}
+    - Class: 114
+      Script: {instanceID: 11250}
+    - Class: 114
+      Script: {instanceID: 11292}
+    - Class: 114
+      Script: {instanceID: 11650}
+    - Class: 114
+      Script: {instanceID: 11770}
+    - Class: 114
+      Script: {instanceID: 11922}
+    - Class: 114
+      Script: {instanceID: 12012}
+    - Class: 114
+      Script: {instanceID: 12064}
+    - Class: 114
+      Script: {instanceID: 12166}
+    - Class: 114
+      Script: {instanceID: 12368}
+    - Class: 114
+      Script: {instanceID: 12490}
+    - Class: 114
+      Script: {instanceID: 12848}
+    - Class: 114
+      Script: {instanceID: 12850}
+    - Class: 114
+      Script: {instanceID: 12898}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 124
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Stealth_Game_3.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -345,31 +426,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11292}
     - Class: 114
-      Script: {instanceID: 11652}
+      Script: {instanceID: 11650}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 11924}
+      Script: {instanceID: 11922}
     - Class: 114
-      Script: {instanceID: 12014}
+      Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12034}
+      Script: {instanceID: 12064}
     - Class: 114
-      Script: {instanceID: 12066}
+      Script: {instanceID: 12166}
     - Class: 114
-      Script: {instanceID: 12168}
+      Script: {instanceID: 12368}
     - Class: 114
-      Script: {instanceID: 12374}
+      Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12422}
+      Script: {instanceID: 12848}
     - Class: 114
-      Script: {instanceID: 12498}
+      Script: {instanceID: 12850}
     - Class: 114
-      Script: {instanceID: 12856}
-    - Class: 114
-      Script: {instanceID: 12858}
-    - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12898}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -491,12 +568,6 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GuardControl
-  - hash:
-      serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
     assemblyName: Unity.ugui.dll
     namespaceName: UnityEngine.UI
@@ -614,7 +685,7 @@ ScriptsOnlyBuild:
       Hash: 1241282b1104337dd313e946012cb0f8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Guard
+    className: GuardControl
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -668,7 +739,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Void
+    className: VoidControl
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -743,22 +814,10 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 83e769eee07fc231384c812eedbb8224
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CameraControl
-  - hash:
-      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: Unity.ugui.dll
     namespaceName: UnityEngine.EventSystems
     className: Physics2DRaycaster
-  - hash:
-      serializedVersion: 2
-      Hash: 7a76897c7b0c89951218193f41e44784
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player
   - hash:
       serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
@@ -771,12 +830,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseControl
-  - hash:
-      serializedVersion: 2
-      Hash: 488dcc04b6dc15eb15a37d037bb4a2e4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameUI
   - hash:
       serializedVersion: 2
       Hash: ee0cef6caaac8ae485bfa82f000f0f7b
@@ -924,7 +977,8 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Scene.unity
-  - Assets/Scenes/Scene Guards.unity
-  - Assets/Scenes/Stealth_Game_!.unity
+  - Assets/Scenes/Scene_Guards.unity
+  - Assets/Scenes/Scene_Guards_2.unity
+  - Assets/Scenes/Stealth_Game_3.unity
   - Assets/Scenes/Dungeon.unity
-  playerPath: E:/Repositories/IntroToGamesDevUnityGame/Game/Out/Game.exe
+  playerPath: E:/Repositories/IntroToGamesDevUnityGame/Game/Out/Stealth Cube.exe

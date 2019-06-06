@@ -22,7 +22,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Text
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
   sceneClasses:
     Assets/Scenes/Dungeon.unity:
     - Class: 1
